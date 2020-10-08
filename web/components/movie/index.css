@@ -1,0 +1,117 @@
+.vedio-wrap {
+  width: 100vw;
+  min-width: 1000px;
+  height: calc(100vh - 100px);
+  min-height: 500px;
+  position: relative;
+}
+.vedio-wrap ._vedio {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: -10;
+}
+.vedio-wrap .vedio-onlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  z-index: 20;
+}
+.vedio-wrap .vedio-onlay .onlay {
+  width: 700px;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.vedio-wrap .vedio-onlay .onlay .btn {
+  position: absolute;
+  top: 215px;
+  left: 300px;
+  font-size: 36px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 5px;
+  z-index: 50;
+}
+.vedio-wrap .vedio-onlay .onlay .button-flex {
+  display: flex;
+  justify-content: center;
+}
+.vedio-wrap .vedio-onlay .onlay .button-flex .door-button {
+  width: 300px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.vedio-wrap .vedio-onlay .onlay .button-flex .onlay-button {
+  display: inline-block;
+  background-image: url('../../assets/img/enterbutton.png');
+  animation: rotatebutton 5s linear infinite;
+}
+.vedio-wrap .vedio-onlay .onlay .button-flex .left-button {
+  background-image: url('../../assets/img/left-button.png');
+  transform: scale(0.8);
+  position: relative;
+  left: 175px;
+  top: -2px;
+}
+.vedio-wrap .vedio-onlay .onlay .button-flex .right-button {
+  background-image: url('../../assets/img/right-button.png');
+  transform: scale(0.8);
+  position: relative;
+  right: 175px;
+  top: -2px;
+}
+.vedio-wrap .vedio-onlay .onlay .door {
+  margin-top: 20px;
+}
+.vedio-wrap .vedio-onlay .onlay .door:hover .left-button {
+  animation: leftmove 1s ease-in forwards;
+}
+.vedio-wrap .vedio-onlay .onlay .door:hover .right-button {
+  animation: rightmove 1s ease-in forwards;
+}
+@keyframes rotatebutton {
+  from {
+    transform: rotate(0deg) scale(1.5);
+  }
+  to {
+    transform: rotate(360deg) scale(1.5);
+  }
+}
+@keyframes leftmove {
+  from {
+    transform: translateX(0px) scale(0.8);
+  }
+  to {
+    transform: translateX(-250px) scale(0.8);
+  }
+}
+@keyframes rightmove {
+  from {
+    transform: translateX(0px) scale(0.8);
+  }
+  to {
+    transform: translateX(250px) scale(0.8);
+  }
+}
+.vedio-wrap .vedio-onlay .onlay-font {
+  color: #0051ff;
+  font-size: 54px;
+  font-weight: 800;
+  font-family: Gilroy Semi Bold, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+.vedio-wrap .vedio-onlay .onlay-font .onlay-sp-margin {
+  margin: 20px;
+}

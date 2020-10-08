@@ -1,0 +1,115 @@
+{
+    "total": {
+       "good": {
+           "value": 129800,
+           "name": "合格品"
+       },
+       "defect": {
+           "value": 2665,
+           "name": "残次品",
+           "selected":true,
+           "detail": [
+            {"value": 335, "name": "停机痕"},
+            {"value": 310, "name": "断纱"},
+            {"value": 234, "name": "油污"},
+            {"value": 135, "name": "漏针"},
+            {"value": 251, "name": "磨损"},
+            {"value": 147, "name": "其它"}
+           ]
+       }
+    },
+    "3": {
+        "good": {
+            "value": 11800,
+            "name": "合格品"
+        },
+        "defect": {
+            "value": 635,
+            "name": "残次品",
+            "selected":true,
+            "detail": [
+             {"value": 35, "name": "停机痕"},
+             {"value": 30, "name": "断纱"},
+             {"value": 234, "name": "油污"},
+             {"value": 135, "name": "漏针"},
+             {"value": 61, "name": "磨损"},
+             {"value": 147, "name": "其它"}
+            ]
+        }
+    },
+    "5": {
+        "good": {
+            "value": 2600,
+            "name": "合格品"
+        },
+        "defect": {
+            "value": 50,
+            "name": "残次品",
+            "selected":true,
+            "detail": [
+             {"value": 5, "name": "停机痕"},
+             {"value": 10, "name": "断纱"},
+             {"value": 2, "name": "油污"},
+             {"value": 15, "name": "磨损"},
+             {"value": 6, "name": "其它"}
+            ]
+        }
+    },
+    "7": {
+        "good": {
+            "value": 19800,
+            "name": "合格品"
+        },
+        "defect": {
+            "value": 1365,
+            "name": "残次品",
+            "selected":true,
+            "detail": [
+             {"value": 335, "name": "停机痕"},
+             {"value": 310, "name": "断纱"},
+             {"value": 234, "name": "油污"},
+             {"value": 135, "name": "漏针"},
+             {"value": 251, "name": "磨损"},
+             {"value": 147, "name": "其它"}
+            ]
+        }
+    },
+    "11": {
+        "good": {
+            "value": 6300,
+            "name": "合格品"
+        },
+        "defect": {
+            "value": 1865,
+            "name": "残次品",
+            "selected":true,
+            "detail": [
+             {"value": 335, "name": "停机痕"},
+             {"value": 310, "name": "断纱"},
+             {"value": 234, "name": "油污"},
+             {"value": 135, "name": "漏针"},
+             {"value": 251, "name": "磨损"},
+             {"value": 147, "name": "其它"}
+            ]
+        }
+    },
+    "15": {
+        "good": {
+            "value": 6892,
+            "name": "合格品"
+        },
+        "defect": {
+            "value": 1665,
+            "name": "残次品",
+            "selected":true,
+            "detail": [
+             {"value": 335, "name": "停机痕"},
+             {"value": 310, "name": "断纱"},
+             {"value": 234, "name": "油污"},
+             {"value": 135, "name": "漏针"},
+             {"value": 251, "name": "磨损"},
+             {"value": 147, "name": "其它"}
+            ]
+        }
+    }
+}

@@ -1,0 +1,129 @@
+.datashow {
+  width: 100vw;
+  height: 100vh;
+  background-color: #013954;
+  padding: 1%;
+}
+.datashow .data-title {
+  width: 100%;
+  height: 8%;
+  display: flex;
+  justify-content: center;
+}
+.datashow .data-title .title-style {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.datashow .data-title .title-style .title-decor {
+  width: 50%;
+  height: 30%;
+}
+.datashow .data-title .title-style .title-flex {
+  display: flex;
+  justify-content: center;
+}
+.datashow .data-title .title-style .title-flex .title-decoration {
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+}
+.datashow .data-title .title-style .title-flex .title-font {
+  margin: 5px 20px 0px;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 600;
+}
+.datashow .data-title .title-style .title-time {
+  font-size: 16px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.datashow .data-content {
+  width: 100%;
+  height: 92%;
+  padding: 1%;
+  display: flex;
+  justify-content: flex-start;
+}
+.datashow .data-content .centerfilter {
+  width: 30%;
+  height: 30%;
+  padding: 5px;
+}
+.datashow .data-content .centerfilter .cen-content {
+  width: 100%;
+  height: 100%;
+}
+.datashow .data-content .centerfilter .cen-content .cen-button {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-bottom: 3px solid #1bd679;
+}
+.datashow .data-content .centerfilter .cen-content .cen-total {
+  width: 100%;
+  height: calc(100% - 50px);
+  background-image: url('../../assets/img/factory.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.datashow .data-content .centerfilter .cen-content .cen-fac {
+  width: 100%;
+  height: calc(100% - 50px);
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  overflow-y: scroll;
+}
+.datashow .data-content .centerfilter .cen-content .cen-fac .single-machine {
+  box-sizing: content-box;
+  width: 100px;
+  height: 85px;
+  margin: 10px;
+  border: 1px solid #1bd679;
+}
+.datashow .data-content .centerfilter .cen-content .cen-fac .single-machine .fac-machine {
+  width: 100px;
+  height: 60px;
+  background-image: url('../../assets/img/jbj.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.datashow .data-content .centerfilter .cen-content .cen-fac .single-machine .machine-info {
+  width: 100px;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 5px ;
+  background-color: #108cca;
+}
+.datashow .data-content .centerfilter .cen-content .cen-fac .single-machine .machine-info .machine-name {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+.datashow .data-content .centerfilter .cen-content .cen-fac .single-machine .machine-info .machine-name .name-span {
+  margin-right: 5px;
+}
+.datashow .data-content .centerfilter .cen-content .cen-fac .single-machine .machine-info .machine-status {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: red;
+}
+.datashow .data-content .centerfilter .cen-content .cen-fac::-webkit-scrollbar {
+  display: none;
+}

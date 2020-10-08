@@ -1,0 +1,14 @@
+.dv-border-box-11 {
+  width: 30% !important;
+  height: 32% !important;
+  position: relative;
+  top: -2%;
+  margin: 0px 20px;
+}
+.dv-border-box-11 .pie {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 10%;
+  left: 5%;
+}

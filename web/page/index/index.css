@@ -1,0 +1,26 @@
+.carousel {
+  z-index: 100;
+}
+.ant-carousel-vertical .slick-dots-right {
+  right: 30px !important;
+}
+.ant-carousel-vertical .slick-dots-right li.slick-active {
+  width: 6px !important;
+  height: 130px !important;
+  border-radius: 3px !important;
+}
+.ant-carousel-vertical .slick-dots-right li.slick-active button {
+  width: 6px !important;
+  height: 120px !important;
+  border-radius: 3px !important;
+}
+.ant-carousel-vertical .slick-dots-right li {
+  width: 6px !important;
+  height: 110px !important;
+  border-radius: 3px !important;
+}
+.ant-carousel-vertical .slick-dots-right li button {
+  width: 6px !important;
+  height: 100px !important;
+  border-radius: 3px !important;
+}

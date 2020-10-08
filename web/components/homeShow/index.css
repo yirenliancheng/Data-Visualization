@@ -1,0 +1,219 @@
+.opcua {
+  width: 100vw;
+  height: calc(100vh - 100px);
+  background-image: url('../../assets/img/opcback.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 3% 5% 5% 2%;
+}
+.opcua .opc-content {
+  display: flex;
+  justify-content: center;
+}
+.opcua .opc-content .content-text {
+  width: 25%;
+  height: 70%;
+  margin-right: 50px;
+}
+.opcua .opc-content .content-text .text-title {
+  font-size: 40px;
+  font-weight: 600;
+  color: white;
+  margin: 15px 0px;
+  letter-spacing: 5px;
+  padding: 5px;
+  border-bottom: 3px solid greenyellow;
+}
+.opcua .opc-content .content-text .text-info {
+  font-size: 20px;
+  text-indent: 40px;
+  text-align: justify;
+  color: #e2e0e0;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.opcua .opc-content .content-text .text-tab {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: rgba(153, 129, 129, 0.2);
+}
+.opcua .opc-content .content-text .text-tab .ant-tabs {
+  color: white;
+  overflow-y: scroll;
+}
+.opcua .opc-content .content-text .text-tab .ant-tabs::-webkit-scrollbar {
+  display: none;
+}
+.opcua .opc-content .content-text .text-tab .ant-tabs-tab-btn {
+  font-size: 18px;
+  font-weight: 500;
+}
+.opcua .opc-content .content-text .text-tab .ant-list-header {
+  color: #16e178;
+  padding-left: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.opcua .opc-content .content-text .text-tab .ant-list-item {
+  color: #e2e0e0;
+}
+.opcua .opc-content .content-text .text-tab .ant-list-item span {
+  font-size: 14px;
+}
+.opcua .opc-content .content-img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 70%;
+  height: 70%;
+}
+.opcua .opc-content .content-img .img-margin {
+  padding: 10px;
+}
+@media screen and (min-height: 1081px) {
+  .ant-tabs {
+    max-height: 600px;
+  }
+}
+@media screen and (max-height: 1080px) {
+  .ant-tabs {
+    max-height: 280px;
+  }
+}
+.data-visual {
+  width: 100vw;
+  height: calc(100vh - 100px);
+  position: relative;
+}
+.data-visual .visual-content {
+  position: absolute;
+  padding: 2% 5% 5% 2%;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+}
+.data-visual .visual-content .content {
+  width: 50%;
+  z-index: 300;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5px 30px 20px;
+  border-radius: 20px;
+}
+.data-visual .visual-content .content .content-title {
+  width: 80%;
+  font-size: 40px;
+  font-weight: 600;
+  color: white;
+  margin: 15px 0px;
+  padding: 5px;
+  letter-spacing: 5px;
+  border-bottom: 3px solid greenyellow;
+  z-index: 300;
+}
+.data-visual .visual-content .content .content-info {
+  width: 100%;
+  font-size: 20px;
+  text-indent: 40px;
+  text-align: justify;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 2px;
+  z-index: 300;
+}
+.data-visual .visual-content .content .content-info .info-div {
+  margin-bottom: 5px;
+}
+.algorithm {
+  width: 100vw;
+  height: calc(100vh - 100px);
+  background-image: url('../../assets/img/ai.jpg');
+  background-size: cover;
+  background-position: left bottom;
+}
+.algorithm .algorithm-content {
+  display: flex;
+  justify-content: center;
+  height: calc(100% - 100px);
+  padding: 2% 5% 2% 5%;
+}
+.algorithm .algorithm-content .content-text {
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px 50px;
+  margin-right: 100px;
+}
+.algorithm .algorithm-content .content-text .content-title {
+  width: 80%;
+  font-size: 40px;
+  font-weight: 600;
+  color: white;
+  padding: 5px;
+  margin: 15px 0px 30px;
+  letter-spacing: 5px;
+  border-bottom: 3px solid greenyellow;
+  z-index: 300;
+}
+.algorithm .algorithm-content .content-text .content-time {
+  height: 80%;
+  padding: 10px 0px;
+  overflow-y: scroll;
+}
+.algorithm .algorithm-content .content-text .content-time .ant-timeline-item-content {
+  color: white;
+  font-size: 16px;
+}
+.algorithm .algorithm-content .content-text .content-time .ant-timeline {
+  margin-left: 20px;
+}
+.algorithm .algorithm-content .content-text .content-time .time-name1 {
+  color: greenyellow;
+  font-size: 18px;
+}
+.algorithm .algorithm-content .content-text .content-time .time-name2 {
+  margin-left: 20px;
+}
+.algorithm .algorithm-content .content-text .content-time .time-desc {
+  margin-top: 10px;
+  margin-left: 40px;
+  font-size: 14px;
+  color: #e2e0e0;
+}
+.algorithm .algorithm-content .content-text .content-time::-webkit-scrollbar {
+  display: none;
+}
+.algorithm .algorithm-content .con-car {
+  width: 50%;
+  height: 100%;
+  padding-top: 20px;
+}
+.algorithm .algorithm-content .con-car .img-div {
+  padding-bottom: 10px;
+  margin-left: 20px;
+}
+.algorithm .algorithm-content .con-car .img-div .div-name {
+  color: white;
+  font-size: 16px;
+  position: relative;
+  left: 35%;
+}
+.algorithm .algorithm-content .con-car .car-ai {
+  width: 100%;
+  height: 40%;
+  position: relative;
+}
+.algorithm .algorithm-content .con-car .car-ai .car-pic {
+  position: absolute;
+  top: 12%;
+  left: 2%;
+}
+.map {
+  width: 100%;
+  height: 100%;
+  min-width: 1000px;
+  min-height: 500px;
+  background-color: #013954;
+  z-index: -100;
+}

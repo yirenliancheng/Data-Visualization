@@ -1,0 +1,15 @@
+.nav {
+  background-color: transparent;
+  color: #fff;
+  margin: 0px 100px 0px;
+  font-size: 22px;
+}
+.nav:hover {
+  color: #666666;
+}
+.ant-menu-horizontal > .ant-menu-item a {
+  color: #fff;
+}
+.ant-menu-horizontal > .ant-menu-item-selected a {
+  color: #1890ff;
+}
