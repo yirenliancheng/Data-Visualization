@@ -4,6 +4,7 @@ import CenterFilter from './CenterFilter';
 import { FullScreenContainer, BorderBox1, Decoration5, Decoration8 } from '@jiaminghi/data-view-react';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import Pie from './echarts/pie';
+import Water from './echarts/water';
 import pieJson from '../../data/pie.json';
 
 class Datashow extends React.PureComponent{
@@ -66,6 +67,7 @@ class Datashow extends React.PureComponent{
         <div className='data-content'>
           { pieJson && <Pie mode={this.state.mode} pieJson={pieJson}/>}
           <CenterFilter mode={this.state.mode} modeChange={this.modeChange}/>
+          <Water mode={this.state.mode}/>
         </div>
        </BorderBox1>
       </FullScreenContainer>
