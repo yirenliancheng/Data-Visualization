@@ -61,7 +61,6 @@ class WaterCircle extends React.Component{
 
     initChart(data){
         let myChart = echarts.init(document.getElementById(this.props.idkey));
-        console.log(data)
         let option = {
             title: {
                 text: '',

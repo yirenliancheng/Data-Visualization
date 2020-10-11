@@ -48,9 +48,9 @@
   height: 90%;
   padding: 1%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  align-content: flex-start;
+  align-content: space-around;
   align-items: center;
 }
 .datashow .data-content .centerfilter {

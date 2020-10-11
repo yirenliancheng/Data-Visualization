@@ -5,6 +5,8 @@ import { FullScreenContainer, BorderBox1, Decoration5, Decoration8 } from '@jiam
 import { ClockCircleOutlined } from '@ant-design/icons';
 import Pie from './echarts/pie';
 import Water from './echarts/water';
+import Radar from './echarts/radar';
+import YieldLine from './echarts/yieldLine';
 import pieJson from '../../data/pie.json';
 
 class Datashow extends React.PureComponent{
@@ -68,6 +70,8 @@ class Datashow extends React.PureComponent{
           { pieJson && <Pie mode={this.state.mode} pieJson={pieJson}/>}
           <CenterFilter mode={this.state.mode} modeChange={this.modeChange}/>
           <Water mode={this.state.mode}/>
+          <Radar/>
+          <YieldLine/>
         </div>
        </BorderBox1>
       </FullScreenContainer>
