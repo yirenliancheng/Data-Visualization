@@ -62,7 +62,7 @@ class Fac extends React.PureComponent {
                                         <span>{item.name}号</span>
                                     </div>
                                     <div className='machine-status' style={{
-                                        'backgroundColor' : machinestatus(item.value)
+                                        'backgroundColor' : machinestatus(item.status)
                                     }}></div>
                                 </div>
                             </div>

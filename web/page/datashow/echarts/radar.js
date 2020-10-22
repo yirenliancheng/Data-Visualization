@@ -3,22 +3,18 @@ import echarts from 'echarts';
 import './index.less';
 import { BorderBox8 } from '@jiaminghi/data-view-react';
 
-const data = {
-    name: 179,
-    value: [90,68,59.2,48.69,80.95,68.5],
-    speed: {
-        xAxis: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
-        setSpeed: [400,400,400,380,390,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400],
-        rateSpeed: [380,390,380,370,380,390,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        actualSpeed: [334,360,348,356,343,385,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+export default class Radar extends React.Component {
+    constructor(props){
+        super(props);
+        this.state={
+            data: this.props.data[0],
+            k : this.props.data.length
+        };
+        this.timer;
     }
-}
-
-export default class Radar extends React.PureComponent {
 
     initChart(data) {
         let myChart = echarts.init(document.getElementById('myRadar'));
-        console.log(data)
         let option = {
             title: {
                 text: `${data.name}号机台表现:`,
@@ -54,8 +50,8 @@ export default class Radar extends React.PureComponent {
                 splitArea: {
                     show: true,
                     areaStyle: {
-                        color: ['rgba(48,229,202,0.6)', 'rgba(27,196,244,0.6)', 'rgba(127,70,179,0.6)',
-                                'rgba(16,215,133,0.6)', 'rgba(250,152,56,0.6)', 'rgba(255,91,91,0.6)'],
+                        color: ['rgba(125, 119, 241,1)', 'rgba(125, 119, 241,0.8)', 'rgba(125, 119, 241,0.6)',
+                                'rgba(125, 119, 241,0.4)', 'rgba(125, 119, 241,0.2)', 'rgba(125, 119, 241,0.1)'],
                     }
                 }
             },
@@ -76,6 +72,9 @@ export default class Radar extends React.PureComponent {
                                 },
                             },
                         },
+                        areaStyle: {
+                            color: 'rgba(69, 233, 19, .4)'
+                        },
                         label: {
                             normal: {
                                 show: true,
@@ -88,41 +87,8 @@ export default class Radar extends React.PureComponent {
                 ]
             }]
         };
-        myChart.setOption(option);
-        window.addEventListener("resize", function () {
-            myChart.resize();
-        });
-    }
-
-    componentDidMount() {
-        this.initChart(data);
-    }
-
-    // shouldComponentUpdate(nextProps){
-    //     if(JSON.stringify(this.props.data) !== JSON.stringify(nextProps.data)){
-    //         this.initChart(nextProps.data);
-    //         return true;
-    //     }
-    //     return false;
-    // }
-
-    render() {
-        return (
-            <div className='car-radar'>
-                <BorderBox8 reverse={true}>
-                    <div id='myRadar' className='radar'></div>
-                    <Lines />
-                </BorderBox8>
-            </div>
-        );
-    }
-}
-
-class Lines extends React.Component {
-
-    initChart(data) {
-        let myChart = echarts.init(document.getElementById('myLines'));
-        let option = {
+        let myLineChart = echarts.init(document.getElementById('myLines'));
+        let Lineoption = {
             title: {
                 text: `${data.name}号机台主轴转速:`,
                 textStyle: {
@@ -380,27 +346,60 @@ class Lines extends React.Component {
             }
             ]
         }
-        myChart.setOption(option);
+        myChart.setOption(option,true);
         window.addEventListener("resize", function () {
             myChart.resize();
+        });
+        myLineChart.setOption(Lineoption,true);
+        window.addEventListener("resize", function () {
+            myLineChart.resize();
         });
     }
 
     componentDidMount() {
-        this.initChart(data);
+        this.initChart(this.state.data);
+        var i = 1;
+        this.timer = setInterval(() => {
+            i = i < this.state.k ? i : 0;
+            this.setState({
+                data: this.props.data[i],
+            },()=>{
+                this.initChart(this.state.data) 
+             })
+            i++;
+        },3000)
     }
 
-    // shouldComponentUpdate(nextProps){
-    //     if(JSON.stringify(this.props.data) !== JSON.stringify(nextProps.data)){
-    //         this.initChart(nextProps.data);
-    //         return true;
-    //     }
-    //     return false;
-    // }
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
+    shouldComponentUpdate(nextProps,nextState){
+        if((JSON.stringify(this.state.data)) !== (JSON.stringify(nextState.data)) ){
+            this.initChart(nextState.data);
+            return true;
+        }
+        if((JSON.stringify(this.props.data)) !== (JSON.stringify(nextProps.data))){
+            this.setState({k: nextProps.data.length})
+            this.initChart(nextProps.data[0]);
+            return true;
+        }
+        return false;
+    }
 
     render() {
         return (
-            <div id='myLines' className='lines'></div>
-        )
+            <div className='car-radar'>
+                <BorderBox8 reverse={true}>
+                    { 
+                       this.state.data && 
+                        <>
+                          <div id='myRadar' className='radar'></div>
+                          <div id='myLines' className='lines'></div>
+                        </>
+                    }
+                </BorderBox8>
+            </div>
+        );
     }
 }

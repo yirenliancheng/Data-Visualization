@@ -80,7 +80,7 @@ export default class Pie extends React.Component{
                     data: detail
                 }
             ],
-            color: [ 'yellowgreen', '#c23531', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
+            color: [ 'rgb(22, 231, 56)', '#E60000',  '#0066FF', '#92368D', '#BF9926',"#F76F01", "#00FFFF",  "#FE2C8A"]
         }
         myChart.setOption(option,true);
         window.addEventListener("resize", function () {

@@ -8,6 +8,7 @@ import Water from './echarts/water';
 import Radar from './echarts/radar';
 import YieldLine from './echarts/yieldLine';
 import pieJson from '../../data/pie.json';
+import performanceData from '../../data/performance';
 
 class Datashow extends React.PureComponent{
   constructor(props){
@@ -34,10 +35,24 @@ class Datashow extends React.PureComponent{
   }
 
   modeChange = (mode) => {
-    this.setState({ mode: mode });
+    this.setState({ mode: mode },this.dealperformanceData);
   } 
 
+  dealperformanceData = () => {
+    var data = [];
+    if (this.state.mode === 'total') {
+       for(let item in performanceData) {
+           data = data.concat(performanceData[item]);
+       }
+     } else {
+       data = performanceData[this.state.mode];
+     };
+    this.setState({ performanceData: data });
+  }
+
+
   componentDidMount(){
+    this.dealperformanceData();
     this.timer = setInterval(this.tick,1000);
   }
 
@@ -70,8 +85,8 @@ class Datashow extends React.PureComponent{
           { pieJson && <Pie mode={this.state.mode} pieJson={pieJson}/>}
           <CenterFilter mode={this.state.mode} modeChange={this.modeChange}/>
           <Water mode={this.state.mode}/>
-          <Radar/>
-          <YieldLine/>
+          {this.state.performanceData && <Radar data={this.state.performanceData}/>}
+          <YieldLine mode={this.state.mode}/>
         </div>
        </BorderBox1>
       </FullScreenContainer>
