@@ -181,7 +181,14 @@ export default class YieldLine extends React.Component {
                       {
                         gt: 100,
                         color: '#cc0033'
-                    }]
+                    }],
+                    formatter: (value,value2) => {
+                        var left = value === -Infinity ? '' : `${value}%`;
+                        var right = value2 === Infinity ? '' : `${value2}%`;
+                        if (left === '') return '≤' + right;
+                        if (right === '') return '≥' + left;
+                        return left + '-' + right;
+                    }
                 },
                 calculable: true,
                 grid: {

@@ -11,38 +11,6 @@
   top: 5%;
   left: 5%;
 }
-.dv-border-box-11 .water {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  top: -5%;
-  left: 5%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.dv-border-box-11 .water .water-content {
-  width: 40%;
-  height: 40%;
-}
-.dv-border-box-11 .water .water-content .water-decor {
-  width: 180px;
-  height: 180px;
-  font-size: 30px;
-  font-weight: 500;
-}
-.dv-border-box-11 .water .water-content .water-name {
-  width: 180px;
-  height: 180px;
-  color: #fff;
-  font-size: 20px;
-  margin: 10px 0px;
-  text-align: center;
-}
-.dv-border-box-11 .water .waterCicle {
-  width: 150px;
-  height: 150px;
-}
 .car-radar {
   width: 30%;
   height: 60%;
@@ -50,9 +18,41 @@
 .car-radar .dv-border-box-8 {
   padding: 1% 0 0 0;
 }
-.car-radar .dv-border-box-8 .radar {
+.car-radar .dv-border-box-8 .water-radar {
   width: 100%;
   height: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.car-radar .dv-border-box-8 .water-radar .water {
+  width: 25%;
+  height: 100%;
+  position: relative;
+  left: 5%;
+}
+.car-radar .dv-border-box-8 .water-radar .water .water-decor {
+  width: 150px;
+  height: 150px;
+  font-size: 30px;
+  font-weight: 500;
+  position: relative;
+  top: 10%;
+  left: 40%;
+}
+.car-radar .dv-border-box-8 .water-radar .water .water-name {
+  height: 20px;
+  color: #6c41d1;
+  font-size: 22px;
+  margin: 15px 0px 40px;
+  font-weight: 900;
+}
+.car-radar .dv-border-box-8 .water-radar .water .waterCicle {
+  width: 150px;
+  height: 150px;
+}
+.car-radar .dv-border-box-8 .water-radar .radar {
+  width: 75%;
+  height: 100%;
 }
 .car-radar .dv-border-box-8 .lines {
   width: 100%;

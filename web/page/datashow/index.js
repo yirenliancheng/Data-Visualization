@@ -82,10 +82,10 @@ class Datashow extends React.PureComponent{
           </div>
         </div>
         <div className='data-content'>
-          { pieJson && <Pie mode={this.state.mode} pieJson={pieJson}/>}
+          <div style={{'width':'30%','height':'30%'}}></div>
           <CenterFilter mode={this.state.mode} modeChange={this.modeChange}/>
-          <Water mode={this.state.mode}/>
-          {this.state.performanceData && <Radar data={this.state.performanceData}/>}
+          { pieJson && <Pie mode={this.state.mode} pieJson={pieJson}/>}
+          {this.state.performanceData && <Radar data={this.state.performanceData}  mode={this.state.mode} />}
           <YieldLine mode={this.state.mode}/>
         </div>
        </BorderBox1>

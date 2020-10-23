@@ -17,27 +17,12 @@ export default class Water extends React.Component{
     
     render(){
         return (
-            <BorderBox11 className='pie-border'
-              title={this.props.mode === 'total' ? '总进度' : `总进度 VS ${this.props.mode}号车间进度`}
-              titleWidth={250} >
-                <div className='water'>
-                    <div className='water-content' key='total'>
-                        <Decoration9 className='water-decor'>
-                            <WaterCircle data={rateData.total} idkey='total'/>
-                        </Decoration9>
-                        <div className='water-name'>总进度</div>
-                    </div>
-                    {
-                        this.props.mode !== 'total' && 
-                        <div className='water-content' key='single'>
-                            <Decoration9 className='water-decor'>
-                              <WaterCircle data={rateData[this.props.mode]} idkey='single'/>
-                            </Decoration9>
-                           <div  className='water-name'>{this.props.mode}号车间进度</div>
-                        </div>
-                    } 
-                </div>
-            </BorderBox11>
+            <div className='water'>
+                <div className='water-name'>{this.props.mode === 'total' ? '总进度:' : `${this.props.mode}号车间进度:`}</div>
+                <Decoration9 className='water-decor'>
+                    <WaterCircle data={rateData[this.props.mode]} idkey='single'/>
+                </Decoration9>
+            </div>
         );
     }
 }

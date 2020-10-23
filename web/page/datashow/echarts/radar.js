@@ -1,5 +1,6 @@
 import React from 'react';
 import echarts from 'echarts';
+import Water from './water';
 import './index.less';
 import { BorderBox8 } from '@jiaminghi/data-view-react';
 
@@ -15,6 +16,7 @@ export default class Radar extends React.Component {
 
     initChart(data) {
         let myChart = echarts.init(document.getElementById('myRadar'));
+        var i = -1;
         let option = {
             title: {
                 text: `${data.name}号机台表现:`,
@@ -24,14 +26,35 @@ export default class Radar extends React.Component {
                     fontSize: 20,
                 },
                 top: '5%',
-                left: '5%',
+                left: '20%'
             },
             textStyle: {
                 fontSize: 16,
                 fontWeight: 500,
             },
             radar: {
+                radius: '50%',
+                center: ['65%','50%'],
                 name: {
+                    show: true,
+                    rich: {
+                        a: {
+                           color: 'rgba(255,255,0,0.8)',
+                           align: 'center',
+                           lineHeight: 20,
+                        },
+                        b: {
+                            color: '#fff',
+                            align: 'center',
+                            backgroundColor: 'rgba(0,102,255,0.8)',
+                            padding: 2,
+                            borderRadius: 4
+                        }
+                    },
+                    formatter: (a) => {
+                        i++;
+                        return `{a|${a}}\n{b|${data.value[i]}%}`
+                    },
                     textStyle: {
                         color: 'rgb(22, 138, 214)',
                         fontWeight: 600,
@@ -75,14 +98,7 @@ export default class Radar extends React.Component {
                         areaStyle: {
                             color: 'rgba(69, 233, 19, .4)'
                         },
-                        label: {
-                            normal: {
-                                show: true,
-                                formatter: (params) => {
-                                    return `${params.value.toFixed(2)}%`
-                                }
-                            }
-                        }
+                        symbolSize: 4
                     }
                 ]
             }]
@@ -394,7 +410,10 @@ export default class Radar extends React.Component {
                     { 
                        this.state.data && 
                         <>
-                          <div id='myRadar' className='radar'></div>
+                          <div className='water-radar'>
+                              <Water mode={this.props.mode}/>
+                              <div id='myRadar' className='radar'></div>
+                          </div>
                           <div id='myLines' className='lines'></div>
                         </>
                     }
