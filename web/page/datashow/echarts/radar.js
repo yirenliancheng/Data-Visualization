@@ -46,7 +46,7 @@ export default class Radar extends React.Component {
                         b: {
                             color: '#fff',
                             align: 'center',
-                            backgroundColor: 'rgba(0,102,255,0.8)',
+                            backgroundColor: 'rgba(0,102,255,0.4)',
                             padding: 2,
                             borderRadius: 4
                         }

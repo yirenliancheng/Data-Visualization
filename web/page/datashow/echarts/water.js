@@ -2,7 +2,7 @@ import React from 'react';
 import echarts from 'echarts';
 import 'echarts-liquidfill';
 import './index.less';
-import { BorderBox11, Decoration9 } from '@jiaminghi/data-view-react';
+import { Decoration9, Decoration2 } from '@jiaminghi/data-view-react';
 
 const rateData = {
     "total": 89,
@@ -19,6 +19,7 @@ export default class Water extends React.Component{
         return (
             <div className='water'>
                 <div className='water-name'>{this.props.mode === 'total' ? '总进度:' : `${this.props.mode}号车间进度:`}</div>
+                <Decoration2  className='decor2-water' style={{width: '100px', height: '5px'}} />
                 <Decoration9 className='water-decor'>
                     <WaterCircle data={rateData[this.props.mode]} idkey='single'/>
                 </Decoration9>

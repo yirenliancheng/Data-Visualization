@@ -130,3 +130,55 @@
 .datashow .data-content .centerfilter .cen-content .cen-fac::-webkit-scrollbar {
   display: none;
 }
+.dv-border-box-13 {
+  width: 30% !important;
+  height: 35% !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.dv-border-box-13 .mac-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 20px 20px 0px;
+}
+.dv-border-box-13 .mac-info .info {
+  min-width: 30%;
+  margin: 5px 10px;
+}
+.dv-border-box-13 .mac-info .info .info-name {
+  color: #fff;
+  margin-right: 10px;
+  font-size: 18px;
+}
+.dv-border-box-13 .mac-info .info .info-value {
+  color: #1298e6;
+  font-size: 18px;
+  font-weight: 600;
+}
+.dv-border-box-13 .stop-title {
+  color: chocolate;
+  position: relative;
+  left: 4%;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 10px 0px;
+}
+.dv-border-box-13 .mac-scrollBoard {
+  width: 90%;
+  height: 50%;
+  position: relative;
+  left: 4%;
+}
+.decor2 {
+  position: relative;
+  left: 4%;
+  top: -2%;
+}
+.decor2-water {
+  position: relative;
+  left: 2%;
+  top: -5%;
+}

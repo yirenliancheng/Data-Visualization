@@ -4,7 +4,7 @@ import CenterFilter from './CenterFilter';
 import { FullScreenContainer, BorderBox1, Decoration5, Decoration8 } from '@jiaminghi/data-view-react';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import Pie from './echarts/pie';
-import Water from './echarts/water';
+import MachineInfo from './MachineInfo';
 import Radar from './echarts/radar';
 import YieldLine from './echarts/yieldLine';
 import pieJson from '../../data/pie.json';
@@ -82,7 +82,7 @@ class Datashow extends React.PureComponent{
           </div>
         </div>
         <div className='data-content'>
-          <div style={{'width':'30%','height':'30%'}}></div>
+          <MachineInfo/>
           <CenterFilter mode={this.state.mode} modeChange={this.modeChange}/>
           { pieJson && <Pie mode={this.state.mode} pieJson={pieJson}/>}
           {this.state.performanceData && <Radar data={this.state.performanceData}  mode={this.state.mode} />}
