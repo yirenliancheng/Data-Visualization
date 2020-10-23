@@ -9,6 +9,7 @@
     "egg": "^2.21.0",
     "egg-scripts": "^2.11.0",
     "egg-static": "^2.2.0",
+    "moment": "^2.29.1",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-router-dom": "^5.0.0",

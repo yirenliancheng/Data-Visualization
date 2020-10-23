@@ -79,6 +79,9 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+.datashow .data-content .centerfilter .cen-content .single-machine:hover {
+  transform: scale(1.1);
+}
 .datashow .data-content .centerfilter .cen-content .cen-fac {
   width: 100%;
   height: calc(100% - 50px);
@@ -96,6 +99,7 @@
   height: 85px;
   margin: 10px;
   border: 1px solid #1bd679;
+  transition: all 0.3s;
 }
 .datashow .data-content .centerfilter .cen-content .cen-fac .single-machine .fac-machine {
   width: 100px;

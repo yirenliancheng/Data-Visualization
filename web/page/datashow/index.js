@@ -9,28 +9,23 @@ import Radar from './echarts/radar';
 import YieldLine from './echarts/yieldLine';
 import pieJson from '../../data/pie.json';
 import performanceData from '../../data/performance';
+import moment from 'moment';
 
 class Datashow extends React.PureComponent{
   constructor(props){
     super(props);
     this.state={
-      time: null,
-      mode: 'total'
+      time: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+      mode: 'total',
+      data: performanceData[3][0]
     }
     this.timer;
+    this.timeout;
   }
   
   tick = () => {
-    let time = new Date();
-    let year = time.getFullYear();
-    let month = (time.getMonth() + 1) >= 10 ? (time.getMonth() + 1) : `0${(time.getMonth() + 1)}`;
-    let day =  time.getDate() >= 10 ? time.getDate() : `0${time.getDate()}`;
-    let hours = time.getHours() >= 10 ? time.getHours() : `0${time.getHours()}`;
-    let minutes = time.getMinutes() >= 10 ? time.getMinutes() : `0${time.getMinutes()}`;
-    let seconds = time.getSeconds() >= 10 ? time.getSeconds() : `0${time.getSeconds()}`;
-    let nowtime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
     this.setState({
-      time:nowtime
+      time: moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
     }) 
   }
 
@@ -41,23 +36,33 @@ class Datashow extends React.PureComponent{
   dealperformanceData = () => {
     var data = [];
     if (this.state.mode === 'total') {
-       for(let item in performanceData) {
-           data = data.concat(performanceData[item]);
+       for(let item in performanceData) { 
+         data = data.concat(performanceData[item]);
        }
      } else {
        data = performanceData[this.state.mode];
      };
-    this.setState({ performanceData: data });
+    var k = data.length;
+    this.setState({ performanceData: data, k: k, data: data[0] });
   }
 
 
   componentDidMount(){
     this.dealperformanceData();
     this.timer = setInterval(this.tick,1000);
+    var i = 1;
+    this.timeout = setInterval(() => {
+      i = i < this.state.k ? i : 0;
+      this.setState({ data: this.state.performanceData[i]})
+      i++;
+    },3000)
   }
+
+
 
   componentWillUnmount(){
     clearInterval(this.timer);
+    clearInterval(this.timeout);
   }
 
   render(){
@@ -82,10 +87,13 @@ class Datashow extends React.PureComponent{
           </div>
         </div>
         <div className='data-content'>
-          <MachineInfo/>
+          <MachineInfo
+            machineInformation={this.state.data.machineInformation}
+            stopInformation={this.state.data.stopInformation}
+          />
           <CenterFilter mode={this.state.mode} modeChange={this.modeChange}/>
           { pieJson && <Pie mode={this.state.mode} pieJson={pieJson}/>}
-          {this.state.performanceData && <Radar data={this.state.performanceData}  mode={this.state.mode} />}
+          {this.state.data && <Radar data={this.state.data}  mode={this.state.mode} />}
           <YieldLine mode={this.state.mode}/>
         </div>
        </BorderBox1>

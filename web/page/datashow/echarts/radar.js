@@ -8,8 +8,7 @@ export default class Radar extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            data: this.props.data[0],
-            k : this.props.data.length
+            data: this.props.data
         };
         this.timer;
     }
@@ -373,31 +372,17 @@ export default class Radar extends React.Component {
     }
 
     componentDidMount() {
-        this.initChart(this.state.data);
-        var i = 1;
-        this.timer = setInterval(() => {
-            i = i < this.state.k ? i : 0;
-            this.setState({
-                data: this.props.data[i],
-            },()=>{
-                this.initChart(this.state.data) 
-             })
-            i++;
-        },3000)
+        console.log(this.props.data);
+        this.initChart(this.props.data);
     }
 
     componentWillUnmount() {
         clearInterval(this.timer);
     }
 
-    shouldComponentUpdate(nextProps,nextState){
-        if((JSON.stringify(this.state.data)) !== (JSON.stringify(nextState.data)) ){
-            this.initChart(nextState.data);
-            return true;
-        }
+    shouldComponentUpdate(nextProps){
         if((JSON.stringify(this.props.data)) !== (JSON.stringify(nextProps.data))){
-            this.setState({k: nextProps.data.length})
-            this.initChart(nextProps.data[0]);
+            this.initChart(nextProps.data);
             return true;
         }
         return false;
