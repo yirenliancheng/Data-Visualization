@@ -41,14 +41,14 @@ function randomPerformance(data){
 
             //生成模拟产量
             var yieldInfo = {};
-            for(let i = 1; i< 15; i++){
+            for(let i = 1; i< 31; i++){
                var shiftAPlan = Math.floor(Math.random()*100+100);
                var shiftBPlan = -Math.floor(Math.random()*100+100);
                var shiftTotalPlan = shiftAPlan - shiftBPlan;
                var shiftA = Math.floor(Math.random()*shiftAPlan);
                var shiftB = Math.floor(Math.random()*shiftBPlan);
                var shiftTotal = shiftA - shiftB;
-               var ratioTotal = i !== 1 ? Number((shiftTotal/(yieldInfo[`day${i-1}`].shiftTotal) - 1)*100).toFixed(2) : Number(((Math.random()-0.5)*20).toFixed(2));
+               var ratioTotal = i !== 1 ? Number(((shiftTotal/(yieldInfo[`day${i-1}`].shiftTotal) - 1)*100).toFixed(2)) : Number(((Math.random()-0.5)*20).toFixed(2));
                yieldInfo[`day${i}`] = {
                 "shiftTotalPlan": shiftTotalPlan,
                 "shiftAPlan": shiftAPlan,
@@ -178,5 +178,6 @@ function randomPerformance(data){
 }
 
 var performanceData = randomPerformance(machineJson);
+console.log(performanceData)
 export default performanceData;
 

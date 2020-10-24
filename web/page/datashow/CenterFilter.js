@@ -90,65 +90,6 @@ class Fac extends React.PureComponent {
     }
 }
 
-const gbinformation = [
-    {
-        name:'GB1',
-        resNum: 2232,
-        sjNum: 1780,
-        cirNow: 1264,
-        minCir: 945,
-        resTime: 19.56
-    },
-    {
-        name:'GB2',
-        resNum: 2232,
-        sjNum: 1780,
-        cirNow: 1264,
-        minCir: 945,
-        resTime: 19.56
-    },
-    {
-        name:'GB3',
-        resNum: 2232,
-        sjNum: 1780,
-        cirNow: 1264,
-        minCir: 945,
-        resTime: 19.56
-    },
-    {
-        name:'GB4',
-        resNum: 2232,
-        sjNum: 1780,
-        cirNow: 1264,
-        minCir: 945,
-        resTime: 19.56
-    },
-    {
-        name:'GB5',
-        resNum: 2232,
-        sjNum: 1780,
-        cirNow: 1264,
-        minCir: 945,
-        resTime: 19.56
-    },
-    {
-        name:'GB6',
-        resNum: 2232,
-        sjNum: 1780,
-        cirNow: 1264,
-        minCir: 945,
-        resTime: 19.56
-    },
-    {
-        name:'GB7',
-        resNum: 2232,
-        sjNum: 1780,
-        cirNow: 1264,
-        minCir: 945,
-        resTime: 19.56
-    }
-]
-
 class GBInfo extends React.PureComponent {
     constructor(props){
         super(props);

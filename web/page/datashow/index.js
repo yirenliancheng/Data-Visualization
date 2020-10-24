@@ -7,6 +7,7 @@ import Pie from './echarts/pie';
 import MachineInfo from './MachineInfo';
 import Radar from './echarts/radar';
 import YieldLine from './echarts/yieldLine';
+import SingleMachine from './echarts/singleMachine';
 import performanceData from '../../data/performance';
 import moment from 'moment';
 
@@ -104,7 +105,10 @@ class Datashow extends React.PureComponent{
           />
           <Pie machineId={this.state.data.name} pieJson={this.state.data.productData}/>
           {this.state.data && <Radar data={this.state.data}  mode={this.state.mode} />}
-          <YieldLine mode={this.state.mode}/>
+          { this.state.chooseMachineID ?
+           <SingleMachine chooseMachineID={this.state.chooseMachineID} yieldInfo={this.state.data.yieldInfo} /> :
+           <YieldLine mode={this.state.mode}/>
+          }
         </div>
        </BorderBox1>
       </FullScreenContainer>
