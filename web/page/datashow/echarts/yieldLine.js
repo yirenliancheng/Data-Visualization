@@ -89,7 +89,7 @@ export default class YieldLine extends React.Component {
                 timeline: {
                     axisType: 'category',
                     autoPlay: true,
-                    playInterval: 3000,
+                    playInterval: 5000,
                     orient: 'vertical',
                     right: 60,
                     top: 'center',

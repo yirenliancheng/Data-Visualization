@@ -7,7 +7,6 @@ import Pie from './echarts/pie';
 import MachineInfo from './MachineInfo';
 import Radar from './echarts/radar';
 import YieldLine from './echarts/yieldLine';
-import pieJson from '../../data/pie.json';
 import performanceData from '../../data/performance';
 import moment from 'moment';
 
@@ -17,7 +16,8 @@ class Datashow extends React.PureComponent{
     this.state={
       time: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
       mode: 'total',
-      data: performanceData[3][0]
+      data: performanceData[3][0],
+      chooseMachineID: null,
     }
     this.timer;
     this.timeout;
@@ -30,7 +30,7 @@ class Datashow extends React.PureComponent{
   }
 
   modeChange = (mode) => {
-    this.setState({ mode: mode },this.dealperformanceData);
+    this.setState({ mode: mode, chooseMachineID: null },this.dealperformanceData);
   } 
 
   dealperformanceData = () => {
@@ -46,7 +46,6 @@ class Datashow extends React.PureComponent{
     this.setState({ performanceData: data, k: k, data: data[0] });
   }
 
-
   componentDidMount(){
     this.dealperformanceData();
     this.timer = setInterval(this.tick,1000);
@@ -55,14 +54,18 @@ class Datashow extends React.PureComponent{
       i = i < this.state.k ? i : 0;
       this.setState({ data: this.state.performanceData[i]})
       i++;
-    },3000)
+    },5000)
   }
-
-
 
   componentWillUnmount(){
     clearInterval(this.timer);
     clearInterval(this.timeout);
+  }
+
+  chooseMachine = (id) => {
+    this.setState({
+      chooseMachineID : id 
+    },()=>{console.log(this.state)})
   }
 
   render(){
@@ -91,8 +94,13 @@ class Datashow extends React.PureComponent{
             machineInformation={this.state.data.machineInformation}
             stopInformation={this.state.data.stopInformation}
           />
-          <CenterFilter mode={this.state.mode} modeChange={this.modeChange}/>
-          { pieJson && <Pie mode={this.state.mode} pieJson={pieJson}/>}
+          <CenterFilter
+            mode={this.state.mode}
+            modeChange={this.modeChange}
+            chooseMachineID={this.state.chooseMachineID}
+            chooseMachine={this.chooseMachine}
+          />
+          <Pie machineId={this.state.data.name} pieJson={this.state.data.productData}/>
           {this.state.data && <Radar data={this.state.data}  mode={this.state.mode} />}
           <YieldLine mode={this.state.mode}/>
         </div>
@@ -103,7 +111,6 @@ class Datashow extends React.PureComponent{
 }
 
 Datashow.getInitialProps = async (ctx) => {
-  // ssr渲染模式只在服务端通过Node获取数据，csr渲染模式只在客户端通过http请求获取数据，getInitialProps方法在整个页面生命周期只会执行一次
   return __isBrowser__ ? (await window.fetch('/api/getIndexData')).json() : ctx.service.api.index()
 }
 

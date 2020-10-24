@@ -4,8 +4,8 @@ import './index.less';
 import { BorderBox11 } from '@jiaminghi/data-view-react';
 
 export default class Pie extends React.Component{
-    dataPreDeal(mode){
-        let data = this.props.pieJson[mode];
+    dataPreDeal(){
+        let data = this.props.pieJson;
         let defect = data.defect;
         let detail = data.defect.detail;
         let legend = detail.map(item => item.name);
@@ -13,10 +13,9 @@ export default class Pie extends React.Component{
         return { detail, legend, innerpie };
     }
 
-    initChart(mode){
+    initChart(){
         let myChart = echarts.init(document.getElementById('myPie'));
-        const { detail, legend, innerpie } = this.dataPreDeal(mode);
-        this.dataPreDeal(mode);
+        const { detail, legend, innerpie } = this.dataPreDeal();
         let option = {
             tooltip: {
                 trigger: 'item',
@@ -89,31 +88,12 @@ export default class Pie extends React.Component{
     }
 
     componentDidMount(){
-        this.initChart(this.props.mode);
-    }
-
-    machinestatus(mode) {
-        switch (mode) {
-            case "total" :
-               return '汇总车间';
-            case "3" :
-                return '3号车间';
-            case "5" :
-                return '5号车间';
-            case "7" :
-                return "7号车间";
-            case "11" :
-                return "11号车间";
-            case "15" :
-                return "15号车间";
-            default :
-                return '汇总车间';
-        }
+        this.initChart();
     }
 
     shouldComponentUpdate(nextProps){
-        if(this.props.mode !== nextProps.mode){
-            this.initChart(nextProps.mode);
+        if(JSON.stringify(this.props) !== JSON.stringify(nextProps)){
+            this.initChart();
             return true;
         }
         return false;
@@ -121,7 +101,7 @@ export default class Pie extends React.Component{
  
     render(){
         return (
-            <BorderBox11 className='pie-border' title={`${this.machinestatus(this.props.mode)}产品质量`} titleWidth={250} >
+            <BorderBox11 className='pie-border' title={`${(this.props.machineId)}号机台产品质量`} titleWidth={250} >
                 <div id='myPie' className='pie'></div>
             </BorderBox11>
         );

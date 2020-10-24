@@ -162,7 +162,5 @@ function randomPerformance(data){
 }
 
 var performanceData = randomPerformance(machineJson);
-console.log(performanceData);
-
 export default performanceData;
 
