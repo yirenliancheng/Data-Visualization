@@ -150,6 +150,22 @@ function randomPerformance(data){
                 }
             };
             
+            //生成模拟机台经轴数据
+            var GB = ['GB1','GB2','GB3','GB4','GB5','GB6','GB7']
+            var gbinformation = GB.map(item => {
+                return (
+                    {
+                        name: item,
+                        resNum: Math.floor(Math.random()*10000),
+                        sjNum: Math.floor(Math.random()*10000),
+                        cirNow: Math.floor(Math.random()*10000),
+                        minCir: Math.floor(Math.random()*5000),
+                        resTime: Number((Math.random()*1000).toFixed(2))
+                    }
+                )
+            })
+
+            element.gbinformation = gbinformation;
             element.yieldInfo = yieldInfo;
             element.value = value;
             element.speed = speed;

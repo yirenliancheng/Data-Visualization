@@ -35,13 +35,14 @@ class Datashow extends React.PureComponent{
 
   dealperformanceData = () => {
     var data = [];
-    if (this.state.mode === 'total') {
-       for(let item in performanceData) { 
-         data = data.concat(performanceData[item]);
-       }
-     } else {
+    for(let item in performanceData) { 
+        data = data.concat(performanceData[item]);
+      }
+    if(this.state.chooseMachineID){
+      data = [data.find(item => item.name === this.state.chooseMachineID)];
+    }else if (this.state.mode !== 'total') {
        data = performanceData[this.state.mode];
-     };
+    };
     var k = data.length;
     this.setState({ performanceData: data, k: k, data: data[0] });
   }
@@ -65,7 +66,7 @@ class Datashow extends React.PureComponent{
   chooseMachine = (id) => {
     this.setState({
       chooseMachineID : id 
-    },()=>{console.log(this.state)})
+    },this.dealperformanceData)
   }
 
   render(){
@@ -99,6 +100,7 @@ class Datashow extends React.PureComponent{
             modeChange={this.modeChange}
             chooseMachineID={this.state.chooseMachineID}
             chooseMachine={this.chooseMachine}
+            gbinformation={this.state.data.gbinformation}
           />
           <Pie machineId={this.state.data.name} pieJson={this.state.data.productData}/>
           {this.state.data && <Radar data={this.state.data}  mode={this.state.mode} />}

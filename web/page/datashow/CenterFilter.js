@@ -47,7 +47,7 @@ export default class CenterFilter extends React.PureComponent {
                                 <span>剩余时间/min</span>
                             </div>
                             {
-                                gbinformation.map(item => {
+                                this.props.gbinformation.map(item => {
                                   return <GBInfo data={item} key={item.name}/>
                                 })
                             }

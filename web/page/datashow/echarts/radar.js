@@ -372,7 +372,6 @@ export default class Radar extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.data);
         this.initChart(this.props.data);
     }
 
