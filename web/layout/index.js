@@ -1,7 +1,6 @@
 import React from 'react';
 import serialize from 'serialize-javascript';
 import Nav from '../components/nav';
-// import '@/assets/common.less';
 import './index.less';
 
 const commonNode = props => (
